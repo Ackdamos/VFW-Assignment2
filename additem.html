@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="placeholder text" />
+		<meta name="keywords" content="html5, mobile development, visual frameworks, full sail university, dayz" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="viewport" content="target-densitydpi=device-dpi" />
+		
+		<title>DayZ Loadout Creator</title>
+		
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	
+	</head>
+	
+	<body>
+		<h1>DayZ Loadout Creator</h1>
+		
+		<nav>
+			<a href="#" id="clear">Clear Saved Loadouts</a>
+			<a class="displayLink" href="#" id="displayLink">Display Saved Loadouts</a>
+		</nav>
+		</br>
+		<img class="imgcenter" src="images/dayz.png" alt="DayZ Logo" /></br>
+		
+		<form action="#" method="post" id="addGear">
+			
+			<fieldset>
+				<legend>Loadout Information</legend>
+					<ul>
+						<li><label for="name">Loadout Creator:</li></label><input type="text" id="name" />
+						<li><label for="gearName">Loadout Name:</li></label><input type="text" id="gearName" />
+						<li><label for="dateAdded">Creation Date:</li></label><input type="date" id="dateAdded" />
+					</ul>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Gear Selection</legend>
+					<ul>
+						<li><label for="primaryWeapon">Choose Primary Weapon:</label></li>
+					</ul>	
+						<ul>
+							<select id="primaryWeapon">
+								<optgroup label="Select Primary Weapon">
+									<option value="crossbow">Compound Crossbow</option>
+									<option value="m1014">M1014</option>
+									<option value="remington">Remington 870</option>
+									<option value="doubleBarrel">Double-Barreled Shotgun</option>
+									<option value="winchester">Winchester 1866</option>
+									<option value="bizon">Bizon PP-19 SD</option>
+									<option value="mp5">MP5A5</option>
+									<option value="mp5sd">MP5SD6</option>
+									<option value="ak74">AK-74</option>
+									<option value="aks74">AKS-74</option>
+									<option value="aks74u">AKS-74U</option>
+									<option value="l85a2">L85A2 AWS</option>
+									<option value="m4a1">M4A1</option>
+									<option value="m4a1cco">M4A1 CCO</option>
+									<option value="m4a1ccosd">M4A1 CCO SD</option>
+									<option value="m4a1holo">M4A1 Holo</option>
+									<option value="m16a2">M16A2</option>
+									<option value="m16a2m203">M16A2 M203</option>
+									<option value="m16a4">M16A4 ACOG</option>
+									<option value="akm">AKM</option>
+									<option value="leeEnfield">Lee Enfield</option>
+									<option value="fal">FN FAL</option>
+									<option value="falanpvs">FN FAL AN/PVS4</option>
+									<option value="m249">M249 SAW</option>
+									<option value="m240">M240</option>
+									<option value="mk48">Mk 48 Mod 0</option>
+									<option value="cz550">CZ 550</option>
+									<option value="dmr">DMR</option>
+									<option value="m14">M14 AIM</option>
+									<option value="m24">M24</option>
+									<option value="svd">SVD Camo</option>
+									<option value="m107">M107</option>
+									<option value="as50">AS50</option>
+									<option value="m136">M136</option>
+								</optgroup>
+							</select>
+						</ul>
+			
+				<ul>
+					<li>Primary Magazine Quantity:</li>
+				</ul>
+				<ul>
+					<input type="range"  min="0" max="10" />
+				</ul>
+		
+				<ul>	
+					<li><label for="secondaryWeapon">Choose Secondary Weapon:</label></li>
+				</ul>	
+						<ul>
+							<select id="secondaryWeapon">
+								<optgroup label="Choose Secondary Weapon">
+  									<option value="makarov">Makarov</option>
+  									<option value="m1911">M1911</option>
+  									<option value="revovler">Revovler</option>
+  									<option value="g17">G17</option>
+  									<option value="m9">M9</option>
+  									<option value="m9_sd">M9 SD</option>
+  									<option value="pdw">PDW</option>
+								</optgroup>
+							</select>
+						</ul>
+		
+				<ul>
+					<li>Secondary Magazine Quantity:</li>
+				</ul>		
+					<ul>
+						<input type="range"  min="0" max="8" />
+					</ul>
+		
+				<ul>
+					<li>Additional Items:</li>
+				</ul>		
+					<ul>
+						<input type="checkbox" value="Grenade" id="grenade" /><label for="grenade">Add Grenade</label></br>
+						<input type="checkbox" value="Food" id="food" /><label for="food">Add Food</label></br>
+						<input type="checkbox" value="Drink" id="drink" /><label for="drink">Add Drink</label></li><br>
+						<input type="checkbox" value="Medicine" id="medicine" /><label for="medicine">Add Medicine</label>
+					</ul>
+	 
+				<ul>	 
+					 <li><label for="comments">Comments:</label></li><textarea id="comments"></textarea>	
+				</ul>
+			
+				<ul>
+					<li><input type="hidden" value="true" /></li>
+				</ul>
+			
+			</fieldset>
+			
+			</br><input class="submitButton" type="submit" value="Save Gear Loadout" id="submit" />
+		</form>
+		
+		<script src="js/main.js" type="text/javascript" />
+		
+	</body>
+
+
+</html>
