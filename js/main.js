@@ -1,62 +1,33 @@
 /*
 VFW Project 2
 David Clark
-10/04/12
+02/17/13
 */
 
 window.addEventListener("DOMContentLoaded", function(){
 
-	function blank (x) {
-		var theElement = document.getElementById(x);
-		retrun theElement;
+	function $(x){
+		var theInput = document.getElementById(x);
+		return theInput;
 	}
-
-	function makeWeapons1(){
+	
+		function createWeapons (){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = blank("select"),
-			makeSelect = document.createElement("select");
-			makeSelect.setAttribute("id", "primaryWeapon");
-		for(var i =0, j=primaryWeapons.length, i<j, i++){
+			selectLi = $('select'),
+			createSelect = document.createElement('select');
+			createSelect.setAttribute("id", "weaponChoices");
+		for (var i=0, j=weaponChoices.length; i<j; i++){
 			var makeOption = document.createElement("option");
-			var optText = primaryWeapons[i];
+			var optText = weaponChoices[i];
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
+			createSelect.appendChild(makeOption);
 		}
-		selectLi.appendChild(makeSelect);
-	};
+		selectLi.appendChild(createSelect);
+	}
 	
-		function makeWeapons2(){
-		var formTag = document.getElementsByTagName("form"),
-			selectLi = blank("select"),
-			makeSelect = document.createElement("select");
-			makeSelect.setAttribute("id", "secondaryWeapon");
-		for(var i =0, j=secondaryWeapons.length, i<j, i++){
-			var makeOption = document.createElement("option");
-			var optText = primaryWeapons[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
-		}
-		selectLi.appendChild(makeSelect);
-	};
-	
-	function storeData(){
-		getSelectedRadio();
-		getCheckboxValue();
-		localStorage.setItem("Primary Weapon", blank("primaryWeapons").value);
-		localStorage.setItem("Secondary Weapon", blank("primaryWeapons").value);
-		localStorage.setItem("Grenade", grenadeValue);
-		localStorage.setItem("Food", foodValue);
-		localStorage.setItem("Drink", drinkValue);
-		localStorage.setItem("Medicine", medicineValue);
-		localStorage.setItem("Comments", blank("comments").value);
-		localStorage.setItem("Gear Name", blank("gearName").value);
-		localStorage.setItem("Date Added", blank("date").value);
-	};
-	
-	var primaryWeapons = [
-		"--Select Primary Weapon--",
+	var weaponChoices = [
+		"--Select a Weapon--",
 		"Compound Crossbow",
 		"M1014",
 		"Remington 870",
@@ -94,20 +65,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		"M136"
 	];
 	
-	var secondaryWeapons = [
-		"--Select Secondary Weapon--",
-		"Makarov",
-		"M1911",
-		"Revolver",
-		"G17",
-		"M9",
-		"M9 SD",
-		"PDW"
-	];
+	createWeapons();
+
 	
-	makeWeapons1();
-	makeWeapons2();
-	
+	/*
 	var clearDataLink = blank("clear");
 	clearDataLink.addEventListener("click", clearLocal);
 	
@@ -116,5 +77,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	var save = blank("submit");
 	save.addEventListener("click", storeData);
+	*/
 
+
+
+	
 });
