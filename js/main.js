@@ -26,6 +26,25 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectLi.appendChild(createSelect);
 	}
 	
+	function storeLoadout (){
+		var keyGen					= Math.floor(Math.random()*100001);
+		var loadout					= {};
+			loadout.name			= ["Loadout Creator:", $('name').value];
+			loadout.gearName		= ["Loadout Name:", $('gearName').value];
+			loadout.dateAdded		= ["Creation Date:", $('dateAdded').value];
+			loadout.weaponChoices	= ["Weapon Choice:", $('weaponChoices').value];
+			loadout.magAmount		= ["Magazine Quanity:", $('magAmount').value];
+/*			
+			loadout.grenade			= [];
+			loadout.food			= [];
+			loadout.drink			= [];
+			loadout.medicine		= [];
+*/
+			loadout.comments		= ["Comments:", $('comments').value];
+		localStorage.setItem(keyGen, JSON.stringify(loadout));
+		alert("Loadout has been saved.")
+	}
+	
 	var weaponChoices = [
 		"--Select a Weapon--",
 		"Compound Crossbow",
@@ -74,10 +93,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	var displayDataLink = blank("displayLink");
 	displayDataLink.addEventListener("click", getData);
-	
-	var save = blank("submit");
-	save.addEventListener("click", storeData);
 	*/
+	var submit = blank("submit");
+	save.addEventListener("click", storeLoadout);
+	
 
 
 
