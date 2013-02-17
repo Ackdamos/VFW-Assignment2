@@ -79,6 +79,51 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Loadout has been saved.");
 	}
 	
+	function toggleNavControls (n){
+		switch(n){
+			case "on":
+				$('addGear').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNewLoadout').style.display= "inline";
+				break;
+			case "off":
+				$('addGear').style.display = "blocl";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNewLoadout').style.display= "none";
+				$('items').style.display = "display";
+				break;
+			default:
+				return false;
+		}
+	}
+	
+	function getLoadouts (){
+		toggleNavControls("on");
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
+		for(var i=0, j=localStorage.length; i<j;i++){
+			var makeLi = document.createElement('li');
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeLi.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubLi = document.createElement('li');
+				makeSubList.appendChild(makeSubLi);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubLi.innerHTML = optSubText;
+			}
+		}
+	}
+	
 	var weaponChoices = [
 		"--Select a Weapon--",
 		"Compound Crossbow",
@@ -128,10 +173,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	/*
 	var clearDataLink = blank("clear");
 	clearDataLink.addEventListener("click", clearLocal);
-	
-	var displayDataLink = blank("displayLink");
-	displayDataLink.addEventListener("click", getData);
 	*/
+	var displayDataLink = $('displayLink');
+	displayDataLink.addEventListener("click", getLoadouts);
+	
 	var submit = $('submit');
 	submit.addEventListener("click", storeLoadout);
 	
