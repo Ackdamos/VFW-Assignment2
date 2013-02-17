@@ -124,6 +124,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function clearLoadouts (){
+		if(localStorage.length === 0){
+			alert("There are no saved loadouts to delete.");
+		}else{
+			localStorage.clear();
+			alert("All loadouts have been deleted.");
+			window.location.reload();
+			return false;
+		}
+	}
+	
 	var weaponChoices = [
 		"--Select a Weapon--",
 		"Compound Crossbow",
@@ -170,10 +181,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	createWeapons();
 
 	
-	/*
-	var clearDataLink = blank("clear");
-	clearDataLink.addEventListener("click", clearLocal);
-	*/
+	
+	var clearDataLink = $("clear");
+	clearDataLink.addEventListener("click", clearLoadouts);
+	
 	var displayDataLink = $('displayLink');
 	displayDataLink.addEventListener("click", getLoadouts);
 	
