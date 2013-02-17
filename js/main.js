@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			loadout.medicine		= ["Medicine?", medicineValue];
 			loadout.comments		= ["Comments:", $('comments').value];
 		localStorage.setItem(keyGen, JSON.stringify(loadout));
-		alert("Loadout has been saved.")
+		alert("Loadout has been saved.");
 	}
 	
 	var weaponChoices = [
@@ -132,8 +132,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	var displayDataLink = blank("displayLink");
 	displayDataLink.addEventListener("click", getData);
 	*/
-	var submit = blank("submit");
-	save.addEventListener("click", storeLoadout);
+	var submit = $('submit');
+	submit.addEventListener("click", storeLoadout);
 	
 
 
