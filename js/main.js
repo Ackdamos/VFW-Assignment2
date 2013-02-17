@@ -26,20 +26,54 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectLi.appendChild(createSelect);
 	}
 	
+		function getGrenadeValue (){
+		if($('grenade').checked){
+			grenadeValue = $('grenade').value;
+		}else{
+			grenadeValue = "No";
+		}
+	}
+	
+		function getFoodValue (){
+		if($('food').checked){
+			foodValue = $('food').value;
+		}else{
+			foodValue = "No";
+		}
+	}
+	
+		function getDrinkValue (){
+		if($('drink').checked){
+			drinkValue = $('drink').value;
+		}else{
+			drinkValue = "No";
+		}
+	}
+	
+		function getMedicineValue (){
+		if($('medicine').checked){
+			medicineValue = $('medicine').value;
+		}else{
+			medicineValue = "No";
+		}
+	}
+	
 	function storeLoadout (){
 		var keyGen					= Math.floor(Math.random()*100001);
+		getGrenadeValue();
+		getFoodValue();
+		getDrinkValue();
+		getMedicineValue();
 		var loadout					= {};
 			loadout.name			= ["Loadout Creator:", $('name').value];
 			loadout.gearName		= ["Loadout Name:", $('gearName').value];
 			loadout.dateAdded		= ["Creation Date:", $('dateAdded').value];
 			loadout.weaponChoices	= ["Weapon Choice:", $('weaponChoices').value];
-			loadout.magAmount		= ["Magazine Quanity:", $('magAmount').value];
-/*			
-			loadout.grenade			= [];
-			loadout.food			= [];
-			loadout.drink			= [];
-			loadout.medicine		= [];
-*/
+			loadout.magAmount		= ["Magazine Quanity:", $('magAmount').value];			
+			loadout.grenade			= ["Grenade?", grenadeValue];
+			loadout.food			= ["Food?", foodValue];
+			loadout.drink			= ["Drink?", drinkValue];
+			loadout.medicine		= ["Medicine?", medicineValue];
 			loadout.comments		= ["Comments:", $('comments').value];
 		localStorage.setItem(keyGen, JSON.stringify(loadout));
 		alert("Loadout has been saved.")
@@ -82,7 +116,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		"M107",
 		"AS50",
 		"M136"
-	];
+	],
+		grenadeValue = "No",
+		foodValue = "No",
+		drinkValue = "No",
+		medicineValue = "No";
 	
 	createWeapons();
 
